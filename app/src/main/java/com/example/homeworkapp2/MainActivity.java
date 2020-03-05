@@ -13,6 +13,8 @@ public class MainActivity extends AppCompatActivity {
 
     EditText EditText_id;
     EditText EditText_password;
+    String check_id="wnsgk42";
+    String check_password="123456";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 String password=EditText_password.getText().toString();
 
                 Intent intent =new Intent(MainActivity.this, MainContext.class);
-               if(id.equals("wnsgk42")&& password.equals("123456")){
+               if(id.equals(check_id)&& password.equals(check_password)){
                    // Intent intent =new Intent(MainActivity.this, MainContext.class);
                     startActivity(intent);
                }else{
