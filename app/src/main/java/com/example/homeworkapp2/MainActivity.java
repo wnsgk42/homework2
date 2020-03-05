@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
                 String password=EditText_password.getText().toString();
 
                 if(id.equals("wnsgk42")&& password.equals("123456")){
-                    Intent intent =new Intent(MainActivity.this, 다른엑티비티.class);
+                    Intent intent =new Intent(MainActivity.this, MainContext.class);
                     startActivity(intent);
                 }else{
                     Toast.makeText(getApplicationContext(),"id 혹은 password가 틀렸습니다!", Toast.LENGTH_LONG).show();
