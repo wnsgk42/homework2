@@ -12,50 +12,40 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 
 public class FragmentFriend extends Fragment {
 
-    Button Button_send;
-    EditText EditText_msg;
-
-    private RecyclerView recyclerView; // RecyclerView 클래스를 사용키 위한 참조변수
-    private RecyclerView.Adapter mAdapter; // RecyclerView 클래스를 사용키 위한 참조변수
-    private RecyclerView.LayoutManager layoutManager;// RecyclerView 클래스를 사용키 위한 참조변수
-    private ArrayList<Chatdata> myDataset;
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager layoutManager;
+    private ArrayList<FriendData> myDataset;
 
     private FirebaseDatabase database;
     private DatabaseReference myRef;
-    private String nick="data_nick";
+    private String name="data_name";
 
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup rootview =(ViewGroup) inflater.inflate(R.layout.fragmentfriend,container,false);
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerview_chat);//RecyclerView 참조
+        recyclerView = rootview.findViewById(R.id.RecyclerView_friendlist);//RecyclerView 참조
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference();
 
-        Button_send = findViewById(R.id.Button_send);
-        EditText_msg = findViewById(R.id.EditText_msg);
-
-        Button_send.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Chatdata chatdata= new Chatdata();
-                chatdata.setMsg(EditText_msg.getText().toString());
-                chatdata.setNick(nick);
-                myRef.push().setValue(chatdata);
-            }
-        });
-
         myRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                Chatdata chat =dataSnapshot.getValue(Chatdata.class);
-                ((MyAdapter)mAdapter).addChat(chat);
+                FriendData friend =dataSnapshot.getValue(FriendData.class);
+                ((MyAdapter)mAdapter).addChat(friend);
 
             }
 

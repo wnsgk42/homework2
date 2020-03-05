@@ -24,7 +24,7 @@
         android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_LeftOf="@+id/Button_chat"
+        app:layout_constraintRight_toLeftOf="@+id/Button_chat"
         android:text="친구"
         >
     </Button>
