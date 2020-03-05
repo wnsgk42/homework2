@@ -45,7 +45,7 @@ public class MainContext extends AppCompatActivity {
         Button_chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSupportFragmentManager().beginTransaction().add(R.id.container, fragmentChat).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, fragmentChat).commit();
             }
         });
 
@@ -53,7 +53,7 @@ public class MainContext extends AppCompatActivity {
         Button_set.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSupportFragmentManager().beginTransaction().add(R.id.container, fragmentSetting).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, fragmentSetting).commit();
             }
         });
 
@@ -61,7 +61,7 @@ public class MainContext extends AppCompatActivity {
         Button_news.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSupportFragmentManager().beginTransaction().add(R.id.container, fragmentNews).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, fragmentNews).commit();
             }
         });
 
