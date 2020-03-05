@@ -30,11 +30,12 @@ public class MainActivity extends AppCompatActivity {
                 String id=EditText_id.getText().toString();
                 String password=EditText_password.getText().toString();
 
-                if(id.equals("wnsgk42")&& password.equals("123456")){
-                    Intent intent =new Intent(MainActivity.this, MainContext.class);
+                Intent intent =new Intent(MainActivity.this, MainContext.class);
+               if(id.equals("wnsgk42")&& password.equals("123456")){
+                   // Intent intent =new Intent(MainActivity.this, MainContext.class);
                     startActivity(intent);
-                }else{
-                    Toast.makeText(getApplicationContext(),"id 혹은 password가 틀렸습니다!", Toast.LENGTH_LONG).show();
+               }else{
+                    Toast.makeText(getApplicationContext(),"ID 혹은 PASSWORD가 틀렸습니다!", Toast.LENGTH_LONG).show();
                 }
             }
         });
